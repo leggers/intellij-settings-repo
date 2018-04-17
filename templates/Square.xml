@@ -1,0 +1,22 @@
+<templateSet group="Square">
+  <template name="cnst" value="public static final String $NAME$ = &quot;$NAME$&quot;; " description="Generate a constant string, useful for experiments" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="logger" value="private static final com.squareup.logging.Logger logger = com.squareup.logging.Logger.getLogger($CLASS$.class);" description="Add logger declaration" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="CLASS" expression="" defaultValue="className()" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="txn" value="$TRANSACTER$.inTransaction(&quot;$COMMENT$&quot;, store -&gt; {&#10;  $SELECTION$&#10;});" description="Wrap the body in a call to a transacter" toReformat="true" toShortenFQNames="true">
+    <variable name="TRANSACTER" expression="" defaultValue="transacter" alwaysStopAt="true" />
+    <variable name="COMMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
